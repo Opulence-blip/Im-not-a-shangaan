@@ -113,5 +113,25 @@ const wrapper = document.querySelector('.boxes-wrapper');
         window.addEventListener('resize', adjustForScreenSize);
 
 
+//Fill in infomation, contact form
 
 
+document.getElementById('country').addEventListener('change', function() {
+    const manualCountryGroup = document.getElementById('manual-country-group');
+    if (this.value === 'other') {
+        manualCountryGroup.style.display = 'block';
+    } else {
+        manualCountryGroup.style.display = 'none';
+    }
+});
+
+// Optional: Show success message after form submission
+document.getElementById('contactForm').addEventListener('submit', function() {
+    setTimeout(function() {
+        document.getElementById('successMessage').style.display = 'block';
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+            document.getElementById('successMessage').style.display = 'none';
+        }, 5000);
+    }, 100);
+});
